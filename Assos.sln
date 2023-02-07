@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssosWeb_Server", "AssosWeb_Server\AssosWeb_Server.csproj", "{54DBDD22-DD29-46CB-A969-3C816BC60461}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssosWeb_Server", "AssosWeb_Server\AssosWeb_Server.csproj", "{54DBDD22-DD29-46CB-A969-3C816BC60461}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssosWeb_Client", "AssosWeb_Client\AssosWeb_Client.csproj", "{8BD39F0F-D02C-4130-99C7-8A6CFD98B6FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssosModels", "AssosModels\AssosModels.csproj", "{FD6AB1AC-2DD7-4498-9665-FC59033ABB2B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assos_Business", "Assos_Business\Assos_Business.csproj", "{0FC1E24C-3182-427A-AADE-0F684E0EC419}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assos_Common", "Assos_Common\Assos_Common.csproj", "{0823096E-3E09-4D54-A128-A5A0E789A778}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assos_DataAccess", "Assos_DataAccess\Assos_DataAccess.csproj", "{1A8AE069-8A34-406B-A5D0-48C9BF35F0DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,26 @@ Global
 		{54DBDD22-DD29-46CB-A969-3C816BC60461}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54DBDD22-DD29-46CB-A969-3C816BC60461}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54DBDD22-DD29-46CB-A969-3C816BC60461}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BD39F0F-D02C-4130-99C7-8A6CFD98B6FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BD39F0F-D02C-4130-99C7-8A6CFD98B6FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BD39F0F-D02C-4130-99C7-8A6CFD98B6FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BD39F0F-D02C-4130-99C7-8A6CFD98B6FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD6AB1AC-2DD7-4498-9665-FC59033ABB2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD6AB1AC-2DD7-4498-9665-FC59033ABB2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD6AB1AC-2DD7-4498-9665-FC59033ABB2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD6AB1AC-2DD7-4498-9665-FC59033ABB2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FC1E24C-3182-427A-AADE-0F684E0EC419}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FC1E24C-3182-427A-AADE-0F684E0EC419}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FC1E24C-3182-427A-AADE-0F684E0EC419}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FC1E24C-3182-427A-AADE-0F684E0EC419}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0823096E-3E09-4D54-A128-A5A0E789A778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0823096E-3E09-4D54-A128-A5A0E789A778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0823096E-3E09-4D54-A128-A5A0E789A778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0823096E-3E09-4D54-A128-A5A0E789A778}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A8AE069-8A34-406B-A5D0-48C9BF35F0DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8AE069-8A34-406B-A5D0-48C9BF35F0DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A8AE069-8A34-406B-A5D0-48C9BF35F0DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A8AE069-8A34-406B-A5D0-48C9BF35F0DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
