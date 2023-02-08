@@ -4,11 +4,6 @@ using Assos_DataAccess.Data;
 using AssosModels;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assos_Business.Repository
 {
@@ -43,8 +38,8 @@ namespace Assos_Business.Repository
 
         public async Task<ProductDTO> Get(int id)
         {
-            var obj = await _context.Products.Include(u=>u.Category).FirstOrDefaultAsync(x => x.Id == id);
-            if (obj != null) 
+            var obj = await _context.Products.Include(u => u.Category).Include(u => u.ProductPrices).FirstOrDefaultAsync(u => u.Id == id);
+            if (obj != null)
             {
                 return _mapper.Map<Product, ProductDTO>(obj);
             }
@@ -53,7 +48,8 @@ namespace Assos_Business.Repository
 
         public async Task<IEnumerable<ProductDTO>> GetAll()
         {
-            return  _mapper.Map<IEnumerable<Product>, IEnumerable<ProductDTO>>(_context.Products.Include(u => u.Category));
+            var result = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductDTO>>(_context.Products.Include(u => u.Category).Include(u => u.ProductPrices));
+            return result ;
         }
 
         public async Task<ProductDTO> Update(ProductDTO objDto)

@@ -36,19 +36,20 @@
                     <InputText @bind-Value="Product.Color" class="form-control" />
                     <ValidationMessage For="()=>Product.Color"></ValidationMessage>
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                     <label>Description</label>
-                    <SfRichTextEditor @bind-Value="Product.Description"></SfRichTextEditor> 
+                    <SfRichTextEditor @bind-Value="Product.Description"></SfRichTextEditor>
                     <ValidationMessage For="()=>Product.Description"></ValidationMessage>
                 </div>
+
 
                 <div class="form-group col-6">
                     <div class="form-check">
                         <div class="btnbtn-group col-6">
-                             <InputCheckbox @bind-Value="Product.ShopFavourites" class="form-check-input"></InputCheckbox>
-                       <label class="form-check-label">Is Shop Favourites</label>
+                            <InputCheckbox @bind-Value="Product.ShopFavourites" class="form-check-input"></InputCheckbox>
+                            <label class="form-check-label">Is Shop Favourites</label>
                         </div>
-                       
+
                     </div>
                 </div>
                 <div class="form-group col-6">
@@ -80,9 +81,9 @@
                     <div class="form-group col-6">
                         <InputFile OnChange="HandleImageUpload"></InputFile>
                     </div>
-                    </div>
+                </div>
 
-                 
+
                 <div class="form-group py-2">
                     <button class="btn btn-primary">@Title</button>
                     <NavLink href="product" class="btn btn-secondary">Back To Index</NavLink>
@@ -125,7 +126,8 @@
         IsLoading = true;
         StateHasChanged();
         Categories = await _categoryInterface.GetAll();
-        if(Id!=0){
+        if (Id != 0)
+        {
             Title = "Update";
             Product = await _productRepository.Get(Id);
             OldImageUrl = Product.ImageUrl;
@@ -147,7 +149,8 @@
         }
         else
         {
-            if(OldImageUrl!=Product.ImageUrl){
+            if (OldImageUrl != Product.ImageUrl)
+            {
                 _fileUpload.DeleteFile(OldImageUrl);
                 await _jsRuntime.ToastrSuccess("Product deleted successfully");
 
@@ -155,7 +158,7 @@
 
 
             await _productRepository.Update(Product);
-            await _jsRuntime.ToastrSuccess("Product updated successfully");  
+            await _jsRuntime.ToastrSuccess("Product updated successfully");
             //Update
         }
 
@@ -179,7 +182,7 @@
                       fileInfo.Extension.ToLower() == ".jpeg")
                     {
                         Product.ImageUrl = await _fileUpload.UploadFile(file);
-                       
+
                     }
                     else
                     {

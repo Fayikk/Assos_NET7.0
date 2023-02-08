@@ -27,7 +27,7 @@ else
 
     <SfGrid @ref="productPriceGrid" DataSource="@ProductPrices" AllowPaging="true" AllowFiltering="true" AllowSorting="true"
         Toolbar="@(new List<string>{"Add","Edit","Update","Delete","Cancel"})">
-        <GridEditSettings AllowAdding="true" AllowEditing="true" ShowConfirmDialog="true" AllowDeleting="true"></GridEditSettings>
+        <GridEditSettings AllowAdding="true" AllowEditing="true" ShowDeleteConfirmDialog="true" AllowDeleting="true"></GridEditSettings>
         <GridEvents OnActionBegin="ActionHandler" TValue="ProductPriceDTO"></GridEvents>
         <GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.Menu"></GridFilterSettings>
         <GridSortSettings AllowUnsort="false">
@@ -35,17 +35,18 @@ else
                 <GridSortColumn Field="Price" Direction="SortDirection.Ascending"></GridSortColumn>
             </GridSortColumns>
         </GridSortSettings>
-        <GridPageSettings PageSize="5" PageSizes="true"></GridPageSettings>
+        <GridPageSettings PageSize="5" PageCount="5" PageSizes="true"></GridPageSettings>
         <GridColumns>
-            <GridColumn IsPrimaryKey="true" AllowAdding="false" Field="@nameof(ProductPriceDTO.Id)" HeaderText="ID" TextAlign="TextAlign.Left" Width="150"></GridColumn>
-            <GridColumn Field="@nameof(ProductPriceDTO.Size)" HeaderText="SIZE">
+            <GridColumn IsPrimaryKey="true" AllowAdding="false" Field=@nameof(ProductPriceDTO.Id) HeaderText="ID"></GridColumn>
+            <GridColumn Field=@nameof(ProductPriceDTO.Size) HeaderText="Size">
                 <EditTemplate>
-                    <Syncfusion.Blazor.DropDowns.SfDropDownList DataSource="SizeList" TItem="string" TValue="string" @bind-Value="((context as ProductPriceDTO).Size)">
+                    <Syncfusion.Blazor.DropDowns.SfDropDownList DataSource="SizeList" TItem="string" TValue="string"
+                                                            @bind-Value="((context as ProductPriceDTO).Size)">
 
                     </Syncfusion.Blazor.DropDowns.SfDropDownList>
                 </EditTemplate>
             </GridColumn>
-            <GridColumn Field="@nameof(ProductPriceDTO.Price)" HeaderText="PRICE" Format="C2" Width="150"></GridColumn>
+            <GridColumn Field=@nameof(ProductPriceDTO.Price) HeaderText="Price" Format="C2"></GridColumn>
             <GridColumn HeaderText="Manage Records" Width="150">
                 <GridCommandColumns>
                     <GridCommandColumn Type="CommandButtonType.Edit" ButtonOption="@(new CommandButtonOptions() { IconCss = "e-icons e-edit", CssClass = "e-flat" })"></GridCommandColumn>
