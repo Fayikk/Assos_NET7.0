@@ -8,6 +8,7 @@ namespace AssosWeb_Client.Service
     public class CartService : ICartService
     {
         private readonly ILocalStorageService _localStorage;
+        public event Action OnChange;
         public CartService(ILocalStorageService localStorage)
         {
             _localStorage = localStorage;   
@@ -21,7 +22,7 @@ namespace AssosWeb_Client.Service
             {
                 if (cart[i].ProductId == cartToDelete.ProductId && cart[i].ProductPriceId == cartToDelete.ProductPriceId)
                 {
-                    if (cart[i].Count == 1 || cart[i].Count==0)
+                    if (cart[i].Count == 1 || cartToDelete.Count==0)
                     {
                         cart.Remove(cart[i]);
                     }
@@ -33,7 +34,7 @@ namespace AssosWeb_Client.Service
             }
         
             await _localStorage.SetItemAsync(SD.ShoppingCart, cart);
-
+            OnChange.Invoke();
         }
 
         public async Task IncrementCart(ShoppingCart cartToAdd)
@@ -62,7 +63,7 @@ namespace AssosWeb_Client.Service
                 });
             }
             await _localStorage.SetItemAsync(SD.ShoppingCart, cart);
-
+            OnChange.Invoke();
 
         }
     }

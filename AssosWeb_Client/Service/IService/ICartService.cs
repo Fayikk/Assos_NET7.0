@@ -6,5 +6,6 @@ namespace AssosWeb_Client.Service.IService
     {
         Task DecrementCart(ShoppingCart cart);
         Task IncrementCart(ShoppingCart cart);
+        public event Action OnChange;
     }
 }

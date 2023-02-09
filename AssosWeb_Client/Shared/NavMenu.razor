@@ -1,4 +1,9 @@
-﻿<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+﻿@inject ISyncLocalStorageService _localStorage
+@inject ICartService _cartService
+@implements IDisposable
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <button class="navbar-toggler"
                 type="button"
@@ -11,17 +16,18 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <a class="navbar-brand mt-2 mt-lg-0" href="/">
                 <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
                      height="15"
                      alt="MDB Logo"
                      loading="lazy" />
             </a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                 <li class="nav-item p-0">
-                    <NavLink class="nav-link" href="/">
+                    <NavLink class="nav-link" href="/cart">
                         <span class="p-2">
-                            Home
+                            <i class="bi bi-cart">(@GetCartCount())</i>
                         </span>
                     </NavLink>
                 </li>
@@ -54,3 +60,21 @@
         </div>
     </div>
 </nav>
+
+@code {
+    protected override void OnInitialized()
+    {
+        _cartService.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        _cartService.OnChange -= StateHasChanged;
+    }
+
+    private int GetCartCount()
+    {
+        var cart = _localStorage.GetItem<List<ShoppingCart>>(SD.ShoppingCart);
+        return cart == null ? 0 : cart.Count;
+    }
+}
