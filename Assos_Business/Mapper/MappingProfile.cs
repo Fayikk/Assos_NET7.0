@@ -1,4 +1,5 @@
 ﻿using Assos_DataAccess;
+using Assos_DataAccess.ViewModel;
 using AssosModels;
 using AutoMapper;
 using System;
@@ -16,6 +17,9 @@ namespace Assos_Business.Mapper
             CreateMap<Category, CategoryDTO>().ReverseMap();
             CreateMap<Product,ProductDTO>().ReverseMap();
             CreateMap<ProductPrice, ProductPriceDTO>().ReverseMap();
+            CreateMap<OrderHeader, OrderHeaderDTO>().ReverseMap();
+            CreateMap<OrderDetail, OrderDetailDTO>().ReverseMap();
+            CreateMap<Order, OrderDTO>().ReverseMap();
         }
     }
 }

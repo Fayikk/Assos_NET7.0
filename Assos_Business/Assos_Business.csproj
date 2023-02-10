@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AssosModels\AssosModels.csproj" />
+    <ProjectReference Include="..\Assos_Common\Assos_Common.csproj" />
     <ProjectReference Include="..\Assos_DataAccess\Assos_DataAccess.csproj" />
   </ItemGroup>
 

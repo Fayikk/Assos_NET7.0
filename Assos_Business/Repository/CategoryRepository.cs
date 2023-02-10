@@ -52,9 +52,9 @@ namespace Assos_Business.Repository
             return new CategoryDTO();
         }
 
-        public async Task<IEnumerable<CategoryDTO>> GetAll()
+        public async  Task<IEnumerable<CategoryDTO>> GetAll()
         {
-            return _mapper.Map<IEnumerable<Category>, IEnumerable<CategoryDTO>>(_context.Categories);
+            return  _mapper.Map<IEnumerable<Category>, IEnumerable<CategoryDTO>>(_context.Categories);
         }
 
         public async Task<CategoryDTO> Update(CategoryDTO objDto)
@@ -65,7 +65,7 @@ namespace Assos_Business.Repository
             {
                 obj.Name=objDto.Name;
                 _context.Categories.Update(obj);
-                _context.SaveChangesAsync();
+              await  _context.SaveChangesAsync();
                 return _mapper.Map<Category, CategoryDTO>(obj);
 
             }
