@@ -2,6 +2,7 @@
 @inject ICategoryInterface _categoryInterface;
 @inject IJSRuntime _jsRunTime
 @inject NavigationManager _navigationManager
+@attribute [Authorize(Roles =SD.Role_Admin)]
 
 
 <_DeleteConfirmation IsParentComponentProcessing="IsLoading" ConfirmationChanged="ConfirmDelete_Click"></_DeleteConfirmation>
