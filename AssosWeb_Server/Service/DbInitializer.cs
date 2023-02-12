@@ -41,6 +41,15 @@ namespace AssosWeb_Server.Service
                 };
                 _userManager.CreateAsync(user, "Admin123*").GetAwaiter().GetResult();
                 _userManager.AddToRoleAsync(user, SD.Role_Admin).GetAwaiter().GetResult();
+
+                IdentityUser user1 = new()
+                {
+                    UserName = "füsun@dotnetmaster.com",
+                    Email = "füsun@dotnetmaster.com",
+                    EmailConfirmed = true,
+                };
+                _userManager.CreateAsync(user1, "Admin123*").GetAwaiter().GetResult();
+                _userManager.AddToRoleAsync(user1, SD.Role_Admin).GetAwaiter().GetResult();
             }
             catch (Exception ex)
             {
