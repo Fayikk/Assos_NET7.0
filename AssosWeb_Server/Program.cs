@@ -22,7 +22,8 @@ builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddSyncfusionBlazor();
 builder.Services.AddServerSideBlazor();
 
-
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 //For AddScoped Process
 builder.Services.AddScoped<ICategoryInterface, CategoryRepository>();

@@ -14,3 +14,4 @@ namespace AssosModels
         public double Price { get; set; }
     }
 }
+//Self referencing loop detected with type 'Assos_DataAccess.ProductPrice'. Path 'Order.OrderDetails[0].Product.ProductPrices[0].Product.ProductPrice
