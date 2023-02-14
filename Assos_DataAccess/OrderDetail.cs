@@ -24,9 +24,10 @@ namespace Assos_DataAccess
 
         [Required]
         public int ProductId { get; set; }
-        [DataMember]
         [ForeignKey("ProductId")]
         [NotMapped]
+        [DataMember]
+
         public virtual Product Product { get; set; }
         [DataMember]
 

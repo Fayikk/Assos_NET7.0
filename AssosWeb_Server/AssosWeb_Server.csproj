@@ -6,6 +6,10 @@
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <Content Remove="Pages\Order.razor" />
+	</ItemGroup>
+
 
 	<ItemGroup>
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
@@ -21,6 +25,7 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.3" />
+		<PackageReference Include="Radzen.Blazor" Version="4.7.0" />
 		<PackageReference Include="Syncfusion.Blazor.Grid" Version="20.4.0.49" />
 		<PackageReference Include="Syncfusion.Blazor.RichTextEditor" Version="20.4.0.49" />
 		<PackageReference Include="Syncfusion.Blazor.Themes" Version="20.4.0.49" />
@@ -35,6 +40,18 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\products\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Order.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Order.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Order\Order.razor" />
   </ItemGroup>
 
 </Project>
