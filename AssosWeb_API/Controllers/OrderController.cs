@@ -2,6 +2,7 @@
 using Assos_Business.Repository.IRepository;
 using AssosModels;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Stripe.Checkout;
 
@@ -12,9 +13,11 @@ namespace AssosWeb_API.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IOrderRepository _orderRepository;
-        public OrderController(IOrderRepository orderRepository)
+        private readonly IEmailSender _emailSender;
+        public OrderController(IOrderRepository orderRepository,IEmailSender emailSender)
         {
             _orderRepository = orderRepository;
+            _emailSender = emailSender;
         }
 
 
@@ -60,6 +63,7 @@ namespace AssosWeb_API.Controllers
             if (sessionDetails.PaymentStatus=="paid")
             {
                 var result = await _orderRepository.MarkPaymentSuccessful(orderHeaderDTO.Id, sessionDetails.PaymentIntentId);
+                await _emailSender.SendEmailAsync(orderHeaderDTO.Email, "Assos Your Order Confirmation:", orderHeaderDTO.Name + "Your order number is : " + orderHeaderDTO.Id);
                 if (result == null)
                 {
                     return BadRequest(new ErrorModelDTO()

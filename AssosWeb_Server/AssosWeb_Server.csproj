@@ -34,6 +34,7 @@
 
 	<ItemGroup>
     <ProjectReference Include="..\AssosModels\AssosModels.csproj" />
+    <ProjectReference Include="..\AssosWeb_API\AssosWeb_API.csproj" />
     <ProjectReference Include="..\Assos_Business\Assos_Business.csproj" />
     <ProjectReference Include="..\Assos_DataAccess\Assos_DataAccess.csproj" />
   </ItemGroup>
